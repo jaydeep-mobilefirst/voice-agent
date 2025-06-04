@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Recorder</title>
+</head>
+<body>
+  <h1>Record Audio</h1>
+  <button id="startRecording">Start Recording</button>
+  <button id="stopRecording" disabled>Stop Recording</button>
+  <button id="sendAudio" disabled>Send Audio to Server</button>
+
+  <script type="module">
+    import AudioRecorder from './audioRecorder.js';
+  
+    const recorder = new AudioRecorder();
+  
+    document.getElementById('startRecording').addEventListener('click', async () => {
+      await recorder.startRecording();
+      document.getElementById('stopRecording').disabled = false;
+      document.getElementById('startRecording').disabled = true;
+    });
+  
+    document.getElementById('stopRecording').addEventListener('click', () => {
+      recorder.stopRecording();
+      document.getElementById('stopRecording').disabled = true;
+      document.getElementById('sendAudio').disabled = false;
+    });
+  
+    document.getElementById('sendAudio').addEventListener('click', () => {
+      recorder.sendAudio();
+    });
+  </script>
+  
+</body>
+</html>
