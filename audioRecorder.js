@@ -7,8 +7,8 @@ document.body.innerHTML = `
 `;
 
 // Now, add the existing functionality for recording and sending audio
-let mediaRecorder;
-let audioChunks = [];
+var mediaRecorder;
+var audioChunks = [];
 
 // Start recording when the button is clicked
 document.getElementById('startRecording').addEventListener('click', async () => {
