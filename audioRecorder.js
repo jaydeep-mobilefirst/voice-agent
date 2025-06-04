@@ -1,3 +1,12 @@
+// This code will inject the HTML into the body
+document.body.innerHTML = `
+  <h1>Record Audio</h1>
+  <button id="startRecording">Start Recording</button>
+  <button id="stopRecording" disabled>Stop Recording</button>
+  <button id="sendAudio" disabled>Send Audio to Server</button>
+`;
+
+// Now, add the existing functionality for recording and sending audio
 let mediaRecorder;
 let audioChunks = [];
 
